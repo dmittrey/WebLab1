@@ -1,0 +1,9 @@
+<?php
+
+function hit_result($x, $y, $r)
+{
+    if (($x * $x + $y * $y <= $r / 2) && ($x >= 0) && ($y >= 0)) return true;
+    else if (($x <= 0) && ($x >= (-1 * $r)) && ($y >= 0) && ($y <= $r)) return true;
+    else if (($x >= 0) && ($y <= 0) && ($y >= 2 * $x - $r)) return true;
+    else return false;
+}
