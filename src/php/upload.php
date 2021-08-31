@@ -19,17 +19,20 @@ $hit_result = hit_result($y, $x, $r);
 
 $ru = getrusage();
 
-$output = <<<_END
-<table>
-<tr>
-    <th>$x</th>
-    <th>$y</th>
-    <th>$r</th>
-    <th>$time</th>
-    <th>rutime($ru, $rustart, "utime")</th>
-    <th>$hit_result</th>
-</tr>
-</table>
-_END;
+$rn = $ru - $rustart;
 
-echo $output;
+echo $x . $y . $r . $time . $rn . $hit_result;
+//$output = <<<_END
+//<table>
+//<tr>
+//    <th>$x</th>
+//    <th>$y</th>
+//    <th>$r</th>
+//    <th>$time</th>
+//    <th>rutime($ru, $rustart, "utime")</th>
+//    <th>$hit_result</th>
+//</tr>
+//</table>
+//_END;
+//
+//echo $output;
