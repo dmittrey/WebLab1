@@ -4,13 +4,10 @@ window.onload = function () {
     let X_value = document.getElementById('X_value');
     let R_value = document.getElementById('R_value');
 
-    document.querySelector('form').onsubmit = function () {
-        let fail = validateForm(Y_value, X_value, R_value);
-        if (fail === true) {
+    document.querySelector('form').onclick = function () {
+        if (validateForm(Y_value, X_value, R_value) === true) {
             let params = table_value.value + "&" + Y_value.value + "&" + X_value.value + "&" + R_value.value;
             ajaxPost(params);
-        } else {
-            document.querySelector('.Error_text').innerHTML = fail;
         }
     }
 }
