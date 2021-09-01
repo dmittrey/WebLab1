@@ -5,14 +5,10 @@ $php_start = getrusage();
 require_once 'validator.php';
 require_once 'hit_result.php';
 
-global $y;
-global $x;
-global $r;
-
-if (isset($_POST['y_value']) && isset($_POST['x_value']) && isset($_POST['r_value'])) {
-    $y = $_POST['y_value'];
-    $x = $_POST['x_value'];
-    $r = $_POST['r_value'];
+if (isset($_POST['y']) && isset($_POST['x']) && isset($_POST['r'])) {
+    $y = $_POST['y'];
+    $x = $_POST['x'];
+    $r = $_POST['r'];
 
     if (validate($y, $x, $r)) {
         $time = time();
