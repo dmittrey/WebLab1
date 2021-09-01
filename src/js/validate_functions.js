@@ -1,13 +1,9 @@
 function validateForm(Y_value, X_value, R_value) {
-    let fail = validateY(Y_value);
-    fail += validateX(X_value);
-    fail += validateR(R_value);
+    let fail = validateY(Y_value.value);
+    fail += validateX(X_value.value);
+    fail += validateR(R_value.value);
 
-    if (fail === "") return true;
-    else {
-        alert(fail);
-        return false;
-    }
+    return (fail === "") ? true : fail;
 }
 
 function validateY(field) {

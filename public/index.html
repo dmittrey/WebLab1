@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../src/styles/table_section_style.css">
     <link rel="stylesheet" type="text/css" href="../src/styles/user_input_style.css">
     <script src="../src/js/validate_functions.js"></script>
-<!--    <script src="../src/js/dot_ajax.js"></script>-->
+    <script src="../src/js/table_ajax.js"></script>
+    <script src="../src/js/dot_ajax.js"></script>
 </head>
 <body>
 
@@ -68,7 +69,7 @@
         </svg>
 
         <!-- Форма для отправки данных серверу с помощью метода POST -->
-        <form onsubmit="return validateForm(this)">
+        <form id="form">
 
             <!-- Блок для ввода значений переменных -->
             <div class="form">
@@ -103,10 +104,10 @@
                         </select>
                     </div>
 
-                    <!-- Блок для значения Y -->
+                    <!-- Блок для значения R -->
                     <div class="R_value">
 
-                        <!-- Поле ввода значения Y -->
+                        <!-- Поле ввода значения R -->
                         <label for="R_value">R value:</label>
                         <select id="R_value" size="1" name="R_value">
                             <option disabled selected>Select coordinate R</option>
@@ -117,6 +118,12 @@
                             <option value="5">5</option>
                         </select>
                     </div>
+                </div>
+
+                <div class="Error_text">
+                    <p id="Y_Error"></p>
+                    <p id="X_Error"></p>
+                    <p id="R_Error"></p>
                 </div>
 
                 <!-- Блок для кнопок отправки и обнуления -->
