@@ -1,7 +1,7 @@
-function validateForm(form) {
-    let fail = validateY(form.Y_value.value);
-    fail += validateX(form.X_value.value);
-    fail += validateR(form.R_value.value);
+function validateForm(Y_value, X_value, R_value) {
+    let fail = validateY(Y_value);
+    fail += validateX(X_value);
+    fail += validateR(R_value);
 
     if (fail === "") return true;
     else {
@@ -11,8 +11,10 @@ function validateForm(form) {
 }
 
 function validateY(field) {
-    if (!(field === "")) {
-        return !(/[0-9]/.test(field)) ? "Координата Y задается числом!\n" : ""
+    if (!(field.trim() === "")) {
+        if (!isNaN(field)) {
+            return ((parseInt(field) <= -3) || (parseInt(field) >= 3)) ? "Координата Y задается числами в промежутке (-3...3)!\n" : ""
+        } else return "Координата Y задается числом!\n";
     } else return "Не введена координата Y!\n";
 }
 

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../src/styles/table_section_style.css">
     <link rel="stylesheet" type="text/css" href="../src/styles/user_input_style.css">
     <script src="../src/js/validate_functions.js"></script>
+<!--    <script src="../src/js/dot_ajax.js"></script>-->
 </head>
 <body>
 
@@ -67,8 +68,7 @@
         </svg>
 
         <!-- Форма для отправки данных серверу с помощью метода POST -->
-        <form action="../src/php/upload.php" method="post" enctype="multipart/form-data"
-              onsubmit="return validateForm(this)">
+        <form onsubmit="return validateForm(this)">
 
             <!-- Блок для ввода значений переменных -->
             <div class="form">
@@ -138,8 +138,8 @@
         </div>
 
         <!-- Таблица регистрирующая попадания -->
-        <div id="table">
-            <table>
+        <div>
+            <table id="table">
                 <tr>
                     <th>X</th>
                     <th>Y</th>

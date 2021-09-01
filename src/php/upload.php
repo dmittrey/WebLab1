@@ -1,8 +1,10 @@
 <?php
 
-$rustart = getrusage();
+$php_start = getrusage();
 
-//хороший тон и предостережение GET запросов
+require_once 'validator.php';
+require_once 'hit_result.php';
+
 $y = "";
 $x = 0;
 $r = 0;
@@ -13,10 +15,11 @@ if (isset($_POST['Y_value']) && isset($_POST['X_value']) && isset($_POST['R_valu
     $r = $_POST['R_value'];
 }
 
-$time = time();
+if (validate($y, $x, $r)) echo "proebalisb";
+else {
+    $time = time();
 
-$hit_result = hit_result($y, $x, $r);
+    $hit_result = hit_result($y, $x, $r);
 
-$ru = getrusage();
-
-$rn = $ru - $rustart;
+    $php_time = getrusage() - $php_start;
+}
