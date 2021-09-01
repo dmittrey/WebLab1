@@ -1,12 +1,13 @@
 window.onload = function () {
-    let table_value = document.getElementById('table');
     let Y_value = document.getElementById('Y_value');
     let X_value = document.getElementById('X_value');
     let R_value = document.getElementById('R_value');
 
-    document.querySelector('form').onclick = function () {
+    document.querySelector('form').onsubmit = function () {
         if (validateForm(Y_value, X_value, R_value) === true) {
-            let params = table_value.value + "&" + Y_value.value + "&" + X_value.value + "&" + R_value.value;
+            let params = "y_value=" + Y_value.value + "&"
+                + "x_value=" + X_value.value + "&"
+                + "r_value" + R_value.value;
             ajaxPost(params);
         }
     }
