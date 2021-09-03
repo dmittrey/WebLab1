@@ -9,7 +9,7 @@ function receiveSubmit() {
         $.ajax({
             type: 'POST',
             url: '../src/php/upload.php',
-            data: {'y':Y_value, 'x':X_value, 'r':R_value},
+            data: {'y': Y_value, 'x': X_value, 'r': R_value},
             success: function (data) {
                 $('#table tr:last').after(data);
             },

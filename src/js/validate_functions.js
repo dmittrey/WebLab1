@@ -6,7 +6,7 @@ function validateForm(print_permission) {
 
     let info = "";
     info += "<span>" + validateY(Y_value) + "</span>";
-    info += "<span>" + validateX(X_value) +"</span>";
+    info += "<span>" + validateX(X_value) + "</span>";
     info += "<span>" + validateR(R_value) + "</span>";
 
     if (print_permission) {

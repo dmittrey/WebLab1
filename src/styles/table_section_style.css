@@ -14,13 +14,22 @@ main .table_section #cleaner {
 main .table_section #cleaner input {
     color: whitesmoke;
     background: rgba(0, 0, 0, 0.83);
-    /*background: rgba(49,49,49,0.83);*/
     width: 170px;
     height: 40px;
 }
 
 main .table_section #table {
     position: relative;
-    left: 250px;
     top: 10px;
+    left: 40px;
+    width: 900px;
+    border: 1px solid black;
+}
+
+#table tr:first-of-type {
+    background: rgba(0, 0, 0, 0.83);
+}
+
+#table td, th {
+    padding: 3px;
 }

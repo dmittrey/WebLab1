@@ -12,7 +12,7 @@ $x = $_POST["x"];
 $y = $_POST["y"];
 $r = $_POST["r"];
 
-$hit_result = hit_result($y, $x, $r) ? "TRUE" : "FALSE";
+$hit_result = hit_result($y, $x, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
 
 $script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
 
