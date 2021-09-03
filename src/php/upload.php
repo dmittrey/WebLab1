@@ -1,23 +1,15 @@
 <?php
 
-//$php_start = date();
+if (isset($_POST["Y_value"]) && isset($_POST["X_value"]) && isset($_POST["R_value"])) {
+    if (validate($_POST["Y_value"], $_POST["X_value"], $_POST["R_value"])) {
 
-require_once 'validator.php';
-require_once 'hit_result.php';
-
-if (isset($_POST['y']) && isset($_POST['x']) && isset($_POST['r'])) {
-    $y = $_POST['y'];
-    $x = $_POST['x'];
-    $r = $_POST['r'];
-
-    if (validate($y, $x, $r)) {
-//        $time = time();
+        $x = $_POST["X_value"];
+        $y = $_POST["Y_value"];
+        $r = $_POST["R_value"];
 
         $hit_result = hit_result($y, $x, $r);
 
-//        $php_time = getrusage() - $php_start;
-
-        $data = <<<_END
+        echo $data = <<<_END
         <tr>
             <th>$x</th>
             <th$y</th>
@@ -27,5 +19,9 @@ if (isset($_POST['y']) && isset($_POST['x']) && isset($_POST['r'])) {
             <th>$hit_result</th>
         </tr>
 _END;
+        return;
     }
+
+    echo 'Валидация не прошла!';
+    return;
 }

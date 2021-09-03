@@ -70,11 +70,11 @@
             <text x="170" y="202.5">-R/2</text>
             <text x="170" y="252.5">-R</text>
             <!-- Точка показывающая выбор -->
-            <circle id="dot" fill="white" color="white" r="0" cx="" cy=""/>
+            <circle id="dot" fill="white" color="white" r="0" cx="0" cy="0"/>
         </svg>
 
         <!-- Форма для отправки данных серверу с помощью метода POST -->
-        <form onsubmit="validateForm(true);return false;" onreset="$('.Error_text').html('');">
+        <form id="formx" onsubmit="receiveSubmit(); return false;" onreset="$('.Error_text').html('');">
 
             <div class="form">
 
