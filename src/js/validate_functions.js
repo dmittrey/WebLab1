@@ -1,39 +1,42 @@
-function validateForm(Y_value, X_value, R_value) {
+function validateForm(print_permission) {
 
-    Y_status = validateY(Y_value.value);
-    X_status = validateX(X_value.value);
-    R_status = validateR(R_value.value);
+    let Y_value = $('#Y_value').val();
+    let X_value = $('#X_value').val();
+    let R_value = $('#R_value').val();
 
-    return Y_status && X_status && R_status;
+    let info = "";
+    info += "<span>" + validateY(Y_value) + "</span>";
+    info += "<span>" + validateX(X_value) + "</span>";
+    info += "<span>" + validateR(R_value) + "</span>";
+
+    if (print_permission) {
+        $('.Error_text').html(info);
+    }
+
+    return (info === "<span></span>".repeat(3));
 }
 
 function validateY(field) {
+
     if (!(field.trim() === "")) {
-        if (!isNaN(field)) {
-            if ((parseInt(field) <= -3) || (parseInt(field) >= 3)) {
-                document.querySelector('.Error_text #Y_Error').innerHTML = "Координата Y задается числами в промежутке (-3...3)!";
-                return false;
-            } else return true;
-        } else {
-            document.querySelector('.Error_text #Y_Error').innerHTML = "Координата Y задается числом!";
-            return false;
-        }
-    } else {
-        document.querySelector('.Error_text #Y_Error').innerHTML = "Не введена координата Y!";
-        return false;
-    }
+        if (/^(0$|-?[1-9]\d*(\.\d*[1-9]$)?|-?0\.\d*[1-9])$/.test(field)) {
+            if ((parseInt(field) > -3) && (parseInt(field) < 3)) {
+                return "";
+            } else return "Координата Y задается числом в промежутке (-3...3)!\n";
+        } else return "Координата Y задается числом!\n";
+    } else return "Не введена координата Y!\n";
 }
 
 function validateX(field) {
-    if (field === "Select coordinate X") {
-        document.querySelector('.Error_text #X_Error').innerHTML = "Не введена координата X!";
-        return false;
-    } else return true;
+
+    if (field === null) {
+        return "Не введена координата X!\n";
+    } else return "";
 }
 
 function validateR(field) {
-    if (field === "Select coordinate R") {
-        document.querySelector('.Error_text #R_Error').innerHTML = "Не введена координата R!";
-        return false;
-    } else return true;
+
+    if (field === null) {
+        return "Не введена координата R!\n";
+    } else return "";
 }
