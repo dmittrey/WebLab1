@@ -12,11 +12,14 @@ $x = $_POST["x"];
 $y = $_POST["y"];
 $r = $_POST["r"];
 
-$hit_result = hit_result($y, $x, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
+if (validate($y,$x,$r)) {
+    $hit_result = hit_result($y, $x, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
 
-$script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
+    $script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
 
-echo <<<_END
+    $result[] = 'ok';
+
+    $result[] =  <<<_END
         <tr>
             <th>$x</th>
             <th>$y</th>
@@ -26,4 +29,14 @@ echo <<<_END
             <th>$hit_result</th>
         </tr>
 _END;
+
+    echo json_encode($result);
+} else {
+    $result[] = 'error';
+
+    $result[] = "Validation error!";
+
+    echo json_encode($result);
+}
+
 return;
