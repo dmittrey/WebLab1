@@ -12,14 +12,14 @@ $x = $_POST["x"];
 $y = $_POST["y"];
 $r = $_POST["r"];
 
-if (validate($y,$x,$r)) {
+if (validate($y, $x, $r)) {
     $hit_result = hit_result($y, $x, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
 
     $script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
 
     $result[] = 'ok';
 
-    $result[] =  <<<_END
+    $result[] = <<<_END
         <tr>
             <th>$x</th>
             <th>$y</th>
