@@ -1,5 +1,4 @@
 function cleanTable() {
-
     let standard = "<tr>\n" +
         "        <th>X</th>\n" +
         "        <th>Y</th>\n" +

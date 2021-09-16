@@ -8,18 +8,22 @@ date_default_timezone_set('Europe/Moscow');
 $start = microtime(true);
 $current_time = date("H:i:s");
 
-$x = $_POST["x"];
-$y = $_POST["y"];
-$r = $_POST["r"];
+if (isset($_POST["x"]) && isset($_POST["y"]) && isset($_POST["r"])) {
 
-if (validate($y, $x, $r)) {
-    $hit_result = hit_result($y, $x, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
+    $x = $_POST["x"];
+    $y = $_POST["y"];
+    $r = $_POST["r"];
 
-    $script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
+    $allowedValuesOfX = ['-4', '-3', '-2', '-1', '0', '1', '2', '3', '4'];
+    $allowedValuesOfR = ['1', '2', '3', '4', '5'];
 
-    $result[] = 'ok';
+    if (in_array($x, $allowedValuesOfX) && preg_match("/^((-?[0-3],\d*(?=[1-9])[1-9])|0|(-?[12]))$/", $y) && in_array($r, $allowedValuesOfR)) {
 
-    $result[] = <<<_END
+        $hit_result = isHit($x, $y, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
+
+        $script_time = number_format(microtime(true) - $start, 8, ".", "") * 1000000;
+
+        die(<<<_END
         <tr>
             <th>$x</th>
             <th>$y</th>
@@ -28,15 +32,8 @@ if (validate($y, $x, $r)) {
             <th>$script_time</th>
             <th>$hit_result</th>
         </tr>
-_END;
-
-    echo json_encode($result);
-} else {
-    $result[] = 'error';
-
-    $result[] = "Validation error!";
-
-    echo json_encode($result);
+_END
+        );
+    }
 }
-
-return;
+die("Data is incorrect!");

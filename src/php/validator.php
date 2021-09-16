@@ -1,54 +1,21 @@
 <?php
 
-function validate($y, $x, $r)
-{
-    return validate_y($y) && validate_x($x) && validate_r($r);
-}
+const R_MIN = 1, R_MAX = 5;
+const X_MIN = -4, X_MAX = 4;
 
-function validate_y($field)
+function isValid($x, $y, $r)
 {
-    if (empty($field)) {
-        if (!(trim($field) == '')) {
-            if (preg_match("/^(0$|-?[1-9]\d*(\.\d*[1-9]$)?|-?0\.\d*[1-9])$/", $field)) {
-                if (($field > -3) || ($field < 3)) {
-                    return true;
-                }
-            }
-        }
+    if (!is_int($x) || !is_double($y) || !is_int($r)) {
+        return false;
     }
-    return false;
-}
 
-function validate_x($field)
-{
-    if (empty($field)) {
-        switch ($field) {
-            case -4:
-            case -3:
-            case -2:
-            case -1:
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                return true;
-        }
+    if ($r < R_MIN || $r > R_MAX) {
+        return false;
     }
-    return false;
-}
 
-function validate_r($field)
-{
-    if (empty($field)) {
-        switch ($field) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-                return true;
-        }
+    if ($x < X_MIN || $x > X_MAX) {
+        return false;
     }
-    return false;
+
+    return true;
 }

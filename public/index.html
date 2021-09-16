@@ -5,7 +5,6 @@
     <title>Web1Lab</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../src/styles/body_style.css">
-    <link rel="stylesheet" type="text/css" href="../src/styles/footer_style.css">
     <link rel="stylesheet" type="text/css" href="../src/styles/header_style.css">
     <link rel="stylesheet" type="text/css" href="../src/styles/table_section_style.css">
     <link rel="stylesheet" type="text/css" href="../src/styles/user_input_style.css">
@@ -23,6 +22,7 @@
     <div>
         <span>Dmitry Zubakhin</span>
         <span>P3221</span>
+        <span>Variant 31008</span>
     </div>
 </header>
 
@@ -75,7 +75,8 @@
         </svg>
 
         <!-- Форма для отправки данных серверу с помощью метода POST -->
-        <form id="formx" onsubmit="receiveSubmit(); return false;" onreset="$('.Error_text').html(''); $('#dot').attr('r', '0');">
+        <form id="formx" onsubmit="receiveSubmit(); return false;"
+              onreset="$('.Error_text').html(''); $('#dot').attr('r', '0');">
 
             <div class="form">
 
@@ -168,16 +169,5 @@
         </div>
     </section>
 </main>
-
-<!-- Подвал с названием варианта -->
-<footer>
-    <div>
-        <span>Variant 31008</span>
-    </div>
-</footer>
 </body>
 </html>
-
-<!--Нужно рефакторнуть js файлы чтобы было чистенько и без повторов-->
-<!--сделать так чтобы таблица не залезала через рамку-->
-<!-- Скорее всего нужно взять дата экстрактор из которого просить данные и прописать там методы для смены этих данных-->

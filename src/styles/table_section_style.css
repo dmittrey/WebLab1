@@ -1,8 +1,7 @@
 main .table_section {
     position: absolute;
     top: 550px;
-    left: 450px;
-    width: 1000px;
+    left: 150px;
 }
 
 main .table_section #cleaner {
