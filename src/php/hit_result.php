@@ -7,7 +7,7 @@ function isHit($x, $y, $r)
 
 function isYellowZone($x, $y, $r)
 {
-    return ($x * $x + $y * $y <= $r / 2) && ($x >= 0) && ($y >= 0);
+    return ($x * $x + $y * $y <= $r*$r / 4) && ($x >= 0) && ($y >= 0);
 }
 
 function isBlueZone($x, $y, $r)
