@@ -17,7 +17,7 @@ if (isset($_POST["x"]) && isset($_POST["y"]) && isset($_POST["r"])) {
     $allowedValuesOfX = ['-4', '-3', '-2', '-1', '0', '1', '2', '3', '4'];
     $allowedValuesOfR = ['1', '2', '3', '4', '5'];
 
-    if (in_array($x, $allowedValuesOfX) && preg_match("/^((-?[0-3],\d*(?=[1-9])[1-9])|0|(-?[12]))$/", $y) && in_array($r, $allowedValuesOfR)) {
+    if (in_array($x, $allowedValuesOfX) && preg_match("/^((-?[0-3].\d*(?=[1-9])[1-9])|0|(-?[12]))$/", $y) && in_array($r, $allowedValuesOfR)) {
 
         $hit_result = isHit($x, $y, $r) ? "<span style='color: green'>TRUE</span>" : "<span style='color: red'>FALSE</span>";
 
